@@ -1,5 +1,7 @@
 # Prometheus
 
+---
+
 ## Table of Contents
 - [1. Preparation](#1-preparation)
 - [2. Installation](#2-installation)
@@ -18,29 +20,8 @@ sudo apt update && sudo apt upgrade -y
 
 ![]()
 
-Install nginx.
+Create the `prometheus` user.
 
-```
-sudo apt install nginx -y
-```
-
-![]()
-
-Create a group for a newly created `user` called prometheus in your Prometheus server.
-```
-sudo groupadd prometheus
-```
-
-![]()
-
-Check its creation by executing the following command:
-```
-cat /etc/group
-```
-
-![]()
-
-Now create the `prometheus` user.
 ```
 sudo useradd -s /sbin/nologin --system -g prometheus prometheus
 ```
@@ -48,6 +29,7 @@ sudo useradd -s /sbin/nologin --system -g prometheus prometheus
 ![]()
 
 Check its existance by executing the following command:
+
 ```
 cat /etc/passwd
 ```
@@ -55,6 +37,7 @@ cat /etc/passwd
 ![]()
 
 Create a repertory named `prometheus`.
+
 ```
 sudo mkdir /var/lib/Prometheus
 for i in rules rules.d files_sd; do sudo mkdir -p /etc/prometheus/${i}; done
@@ -65,14 +48,9 @@ for i in rules rules.d files_sd; do sudo mkdir -p /etc/prometheus/${i}; done
 ---
 
 ## 2. Installation
-Install curl
-```
-sudo apt install curl -y
-```
-
-![]()
 
 Download the latest version of Prometheus with the `wget` command.
+
 ```
 mkdir -p /tmp/prometheus
 cd /tmp/prometheus
@@ -188,9 +166,6 @@ sudo systemctl enable prometheus
 
 ### 3.2. Firewall Configuration
 Ensure your firewall is properly configured and allows traffic on ports `HTTPS (443)`, `HTTP (80)`, and `9090`. The Nginx web server presents itself as a ufw service.
-```
-sudo ufw allow in "Nginx Full"
-```
 
 ```
 sudo ufw allow 9090/tcp
@@ -225,4 +200,5 @@ You should see the Prometheus dashboard tab.
 
 ## 5. References
 - [Prometheus - Official Website](https://prometheus.io/)
-- [ServerSpace - Prometheus on Ubuntu Server 20.04 Tutorial](https://serverspace.io/support/help/install-prometheus-ubuntu-20-04/)
+- [CrownCloud Wiki - Install Prometheus on Ubuntu 22.04 Tutorial](https://wiki.crowncloud.net/How_to_Install_Lets_Encrypt_SSL_Certificate_with_Nginx_on_Ubuntu_20_04?How_to_Install_Prometheus_on_Ubuntu_22_04)
+- [CrownCloud Wiki - Configure Prometheus with Grafana](https://wiki.crowncloud.net/?How_to_Configure_Prometheus_Monitoring_Server_with_Grafana_on_Ubuntu_22_04)
