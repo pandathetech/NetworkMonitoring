@@ -11,6 +11,7 @@ My Nessus guide provides step-by-step instructions for installing Nessus version
 - [5. Enable and Start Nessus](#5-enable-and-start-nessus)
 - [6. Configure the Firewall](#6-configure-the-firewall)
 - [7. Access the Nessus Web Interface](#7-access-the-nessus-web-interface)
+- [References](#references)
 
 ---
 
@@ -30,17 +31,20 @@ Install curl for downloading files:
 sudo apt install curl -y
 ```
 
-Install OpenSSH client and server:
+Install OpenSSH client and OpenSSH server:
 
 ```
-sudo apt install openssh-client
+sudo apt install openssh-client -y
+```
+
+```
 sudo apt install openssh-server -y
 ```
 
 ---
 
 ## 3. Download Nessus
-Download the Nessus .deb package directly from Tenable:
+Download the Nessus .deb package directly from Tenable using `curl`:
 
 ```
 curl --request GET \
@@ -54,7 +58,7 @@ curl --request GET \
 Use dpkg to install the Nessus package:
 
 ```
-sudo dpkg -i Nessus-10.7.1-ubuntu1404_amd64.deb
+sudo dpkg -i Nessus-<version-number>-ubuntu<version>_amd64.deb
 ```
 
 ---
@@ -64,6 +68,9 @@ Enable and start the Nessus daemon:
 
 ```
 sudo systemctl enable nessusd.service
+```
+
+```
 sudo systemctl start nessusd.service
 ```
 
@@ -82,3 +89,10 @@ sudo ufw enable
 
 ## 7. Access the Nessus Web Interface
 Once Nessus is installed and running, open a web browser and go to `https://localhost:8834`. This will open the Nessus web interface where you can complete the setup and start vulnerability scans.
+
+
+---
+
+## References
+- [Download Nessus](https://www.tenable.com/downloads/nessus?loginAttempted=true)
+- [Install Nessus](https://docs.tenable.com/nessus/Content/InstallNessusLinux.htm)
