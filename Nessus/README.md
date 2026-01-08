@@ -1,5 +1,4 @@
-# Nessus Guide on Ubuntu 22.04
-My Nessus guide provides step-by-step instructions for installing Nessus version 10.7.1 on an Ubuntu 22.04 system.
+# Nessus (Ubuntu 22.04)
 
 ---
 
@@ -22,14 +21,18 @@ Update the system package list and apply available upgrades:
 sudo apt update && sudo apt full-upgrade -y
 ```
 
+![](https://github.com/pandathetech/ITMonitoring/blob/main/Nessus/Assets/Screenshot%202026-01-07%20144705.png)
+
 ---
 
 ## 2. Install Required Packages
-Install curl for downloading files:
+Install `curl` for downloading files:
 
 ```
 sudo apt install curl -y
 ```
+
+![](https://github.com/pandathetech/ITMonitoring/blob/main/Nessus/Assets/Screenshot%202026-01-07%20144836.png)
 
 Install OpenSSH client and OpenSSH server:
 
@@ -40,6 +43,8 @@ sudo apt install openssh-client -y
 ```
 sudo apt install openssh-server -y
 ```
+
+![](https://github.com/pandathetech/ITMonitoring/blob/main/Nessus/Assets/Screenshot%202026-01-07%20145020.png)
 
 ---
 
